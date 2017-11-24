@@ -30,6 +30,15 @@
   overflow: unset !important;
 }
 
+.ui.fluid.selection.dropdown{
+  background: rgb(247, 247, 247);
+}
+
+.poster{
+  max-height: 100%;
+  max-width: 100%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
