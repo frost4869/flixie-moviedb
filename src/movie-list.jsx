@@ -5,11 +5,11 @@ import { Card, Container, Button } from 'semantic-ui-react'
 
 export default class MovieList extends Component {
     render() {
-        const { movies } = this.props;
+        const { movies, type } = this.props;
         
         return (
             <Card.Group itemsPerRow={4}>
-                {movies.map(m => <MovieCard movie={m} />)}
+                {movies.map(m => <MovieCard movie={m} type={type}/>)}
             </Card.Group>
         )
     }
