@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import {Segment, Container, Grid, Divider, Image, List, Header} from 'semantic-ui-react'
+import { Segment, Container, Grid, Divider, Image, List, Header } from 'semantic-ui-react'
 
 
 export default class Footer extends Component {
     render() {
-        const {logo}= this.props;
+        const { logo } = this.props;
         return (
             <Segment
                 inverted

@@ -26,7 +26,6 @@ export default class MovieCard extends Component {
             title: type === 'movie' ? movie.title : movie.original_name,
             release_date: type === 'movie' ? movie.release_date.split('-')[0] : movie.first_air_date.split('-')[0],
             poster_path: movie.poster_path,
-            description: movie.description,
             vote: movie.vote_average
         };
 
@@ -43,9 +42,6 @@ export default class MovieCard extends Component {
                                 {movieObj.release_date}
                             </span>
                         </Card.Meta>
-                        <Card.Description>
-                            {movieObj.description}
-                        </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
                         <Icon name='star' />

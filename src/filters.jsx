@@ -49,12 +49,12 @@ export default class Filters extends Component {
     async loadSorts() {
         let sort_options = [
             {
-                text: 'Popularity Ascending',
-                value: pop_asc
-            },
-            {
                 text: 'Popularity Descending',
                 value: pop_des
+            },
+            {
+                text: 'Popularity Ascending ',
+                value: pop_asc
             },
             {
                 text: 'Title (A-Z)',
@@ -124,10 +124,8 @@ export default class Filters extends Component {
     }
 
     render() {
-
-
         return (
-            <Grid columns={3}>
+            <Grid columns={3} stackable style={{ marginBottom: 15 + 'px' }}>
                 <Grid.Row>
                     <Grid.Column>
                         <Header as="h4">Year</Header>

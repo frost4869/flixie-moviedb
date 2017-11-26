@@ -12,7 +12,7 @@ export default class InfiniteSroll extends Component {
                 hasMore={hasMore}
                 loader={<Loader active inline='centered' style={{ marginTop: 20 + 'px' }}>More are coming..!</Loader>}>
 
-                <MovieList movies={movies} type={type}/>
+                <MovieList movies={movies} type={type} hasMore={hasMore}/>
 
             </InfiniteScroll>
         )
