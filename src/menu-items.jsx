@@ -26,7 +26,7 @@ export default class MenuItems extends Component {
             content = (
                 <Container>
                     <Menu.Item as='a' onClick={this.props.handleSidebar}>
-                        <Icon name='list'/>
+                        <Icon name='list' />
                     </Menu.Item>
                     <Menu.Item as='a' header>
                         <Image

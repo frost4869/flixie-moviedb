@@ -15,8 +15,10 @@ export default class Footer extends Component {
                     <Grid divided inverted stackable>
                         <Grid.Row>
                             <Grid.Column>
-                                <Header inverted as='h4' content='Footer Header' />
-                                <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                                <Header inverted as='h4'>
+                                    Flixie Movie
+                                </Header>
+                                <p>CoderSchool React course 2017 - Movie Database</p>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

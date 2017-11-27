@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.ui.modal>.content>.icon+.description, .ui.modal>.content>.image+.description{
+  width: 100% !important;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

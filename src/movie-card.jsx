@@ -20,19 +20,20 @@ export default class MovieCard extends Component {
     }
 
     render() {
-        const { movie, type } = this.props;
+        const { movie, type, handleModal } = this.props;
 
         let movieObj = {
             title: type === 'movie' ? movie.title : movie.original_name,
             release_date: type === 'movie' ? movie.release_date.split('-')[0] : movie.first_air_date.split('-')[0],
-            poster_path: movie.poster_path,
+            poster_path: movie.poster_path ? main_path.concat(movie.poster_path) : NoImage,
+            description: movie.overview,
             vote: movie.vote_average
         };
 
         return (
             <Transition animation='fade up' duration={1000} visible={this.state.visible}>
-                <Card>
-                    <Image src={movieObj.poster_path ? main_path.concat(movieObj.poster_path) : NoImage} size='medium' className="poster" />
+                <Card onClick={(e) => handleModal(movieObj)}>
+                    <Image src={movieObj.poster_path} size='medium' className="poster" />
                     <Card.Content>
                         <Card.Header>
                             {movieObj.title}

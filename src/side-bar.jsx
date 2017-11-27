@@ -5,7 +5,7 @@ import MenuItems from './menu-items'
 export default class SideBarMenu extends Component {
 
     handleSidebar() {
-        console.log('clicked')
+        alert('something')
     }
 
     render() {
@@ -13,7 +13,7 @@ export default class SideBarMenu extends Component {
         return (
             <Sidebar.Pushable as={Segment}>
                 <Sidebar as={Menu} animation='overlay' width='thin' visible={visible} icon='labeled' vertical inverted>
-                    <MenuItems logo={logo} type='mobile' handleSidebar={(this.handleSidebar.bind(this))} />
+                    <MenuItems logo={logo} type='mobile' handleSidebar={this.handleSidebar.bind(this)} />
                 </Sidebar>
                 <Sidebar.Pusher>
                     {content}

@@ -5,14 +5,14 @@ import { Dimmer, Segment, Loader } from 'semantic-ui-react'
 
 export default class InfiniteSroll extends Component {
     render() {
-        const { movies, onLoadMore, hasMore, type } = this.props
+        const { movies, onLoadMore, hasMore, type, handleModal } = this.props
         return (
             <InfiniteScroll
                 next={(e) => onLoadMore(e)}
                 hasMore={hasMore}
                 loader={<Loader active inline='centered' style={{ marginTop: 20 + 'px' }}>More are coming..!</Loader>}>
 
-                <MovieList movies={movies} type={type} hasMore={hasMore}/>
+                <MovieList movies={movies} type={type} hasMore={hasMore} handleModal={handleModal}/>
 
             </InfiniteScroll>
         )
