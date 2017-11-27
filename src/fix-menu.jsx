@@ -4,7 +4,7 @@ import MenuItems from './menu-items'
 
 export default class FixMenu extends Component {
     render() {
-        const { logo } = this.props;
+        const { logo, handleSidebar } = this.props;
         const normal_menu = () => {
             return (
                 <MenuItems logo={logo} type='normal' />
@@ -12,7 +12,7 @@ export default class FixMenu extends Component {
         }
         const mobile_menu = () => {
             return (
-                <MenuItems logo={logo} type='mobile' />
+                <MenuItems logo={logo} type='mobile' handleSidebar={handleSidebar} />
             )
         }
         return (

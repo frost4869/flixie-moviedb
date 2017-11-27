@@ -94,7 +94,7 @@ export default class Filters extends Component {
             filter: {
                 year: value,
                 sort: this.state.filter.sort,
-                genre: this.state.filter.genres
+                genres: this.state.filter.genres
             }
         }, function () {
             this.props.filter(this.state.filter);
@@ -105,7 +105,7 @@ export default class Filters extends Component {
             filter: {
                 sort: value,
                 year: this.state.filter.year,
-                genre: this.state.filter.genres
+                genres: this.state.filter.genres
             }
         }, function () {
             this.props.filter(this.state.filter);

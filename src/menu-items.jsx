@@ -8,15 +8,15 @@ export default class MenuItems extends Component {
         if (type === 'normal') {
             content = (
                 <Container>
-                    <Menu.Item as='a' header>
-                        <Image 
+                    <Menu.Item as='a' header href='/'>
+                        <Image
                             size='mini'
                             src={logo}
                             style={{ marginRight: '1.5em' }}
                         />
                         Flixie - Movies Database
                         </Menu.Item>
-                    <Menu.Item as='a'>Discover</Menu.Item>
+                    <Menu.Item as='a' href='/'>Discover</Menu.Item>
                     <Menu.Item as='a'>Movies</Menu.Item>
                     <Menu.Item as='a'>TV Shows</Menu.Item>
                     <Menu.Item as='a'>People</Menu.Item>
@@ -35,7 +35,7 @@ export default class MenuItems extends Component {
                             style={{ marginRight: '1.5em' }}
                         />
                         Flixie - Movies Database
-                        </Menu.Item>
+                    </Menu.Item>
                 </Container>
             )
         }

@@ -39,8 +39,12 @@ class App extends Component {
         genres: []
       },
       type: 'movie',
-      movie: {},
-      open: false
+      movie_details: {
+        movie:{},
+        images:{}
+      },
+      open: false,
+      openSidebar: false
     }
   }
 
@@ -50,7 +54,7 @@ class App extends Component {
 
   async LoadDiscover(page, type) {
     //const now_playing_uri = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=${language}&page=${page}`;
-    const discover_uri = `https://api.themoviedb.org/3/discover/${type}?api_key=${api_key}&language=${language}&sort_by=${this.state.filter.sort}&include_adult=false&page=${page}&primary_release_year=${this.state.filter.year}&first_air_date_year=${this.state.filter.year}`;
+    const discover_uri = `https://api.themoviedb.org/3/discover/${type}?api_key=${api_key}&language=${language}&sort_by=${this.state.filter.sort}&include_adult=false&page=${page}&primary_release_year=${this.state.filter.year}&first_air_date_year=${this.state.filter.year}&with_genres=${this.state.filter.genres}`;
     const search_uri = `https://api.themoviedb.org/3/search/${type}?api_key=${api_key}&language=${language}&query=${this.state.keyword}&page=${page}&include_adult=false&year=${this.state.filter.year}&first_air_date_year=${this.state.filter.year}`;
 
     let uri;
@@ -173,6 +177,7 @@ class App extends Component {
       filter,
       movies: []
     }, function () {
+      console.log(this.state.filter.genres)
       this.LoadDiscover(this.state.page, this.state.type).then((movies) => {
         this.setState({
           movies: movies,
@@ -182,9 +187,18 @@ class App extends Component {
     })
   }
 
-  handleModal(movie) {
+  async handleModal(movie) {
+
+    const movie_images_uri=`https://api.themoviedb.org/3/${this.state.type}/${movie.id}/images?api_key=${api_key}`;
+
+    let result = await fetch(movie_images_uri);
+    let data = await result.json();
+
     this.setState({
-      movie,
+      movie_details:{
+        movie,
+        images: data
+      },
       open: true
     })
   }
@@ -192,6 +206,12 @@ class App extends Component {
   handleModalClose() {
     this.setState({
       open: false
+    })
+  }
+
+  handleSidebar(){
+    this.setState({
+      visible: !this.state.visible
     })
   }
 
@@ -228,7 +248,7 @@ class App extends Component {
             type={this.state.type}
             handleModal={this.handleModal.bind(this)} />
 
-          <MovieModal movie={this.state.movie}
+          <MovieModal movie_details={this.state.movie_details}
             open={this.state.open}
             handleModalClose={this.handleModalClose.bind(this)} />
         </Container>
@@ -237,8 +257,8 @@ class App extends Component {
     )
     return (
       <div>
-        <FixMenu logo={Logo} />
-        <SideBar logo={Logo} content={content} />
+        <FixMenu logo={Logo} handleSidebar={this.handleSidebar.bind(this)}/>
+        <SideBar logo={Logo} content={content} visible={this.state.visible}/>
       </div>
     );
   }

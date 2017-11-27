@@ -21,8 +21,9 @@ export default class MovieCard extends Component {
 
     render() {
         const { movie, type, handleModal } = this.props;
-
+        console.log(movie)
         let movieObj = {
+            id: movie.id,
             title: type === 'movie' ? movie.title : movie.original_name,
             release_date: type === 'movie' ? movie.release_date.split('-')[0] : movie.first_air_date.split('-')[0],
             poster_path: movie.poster_path ? main_path.concat(movie.poster_path) : NoImage,
